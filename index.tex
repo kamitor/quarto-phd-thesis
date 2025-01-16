@@ -1,0 +1,1250 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  a4paper,
+  twoside]{uoe-thesis-template}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+% TODO: Add custom LaTeX header directives here
+
+%% The following are packages that are used by the template and that you will likely need for your content. Do not change this.
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{CormorantGaramond}
+\usepackage{hologo}
+\usepackage{natbib}
+\citestyle{aysep={,}}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage[nottoc]{tocbibind}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage{siunitx}
+\usepackage{lscape}
+\usepackage{textgreek}
+
+%% Under this line, you can add additional packages that you may need for typesetting your document.
+
+%\usepackage{...}
+\usepackage{listings}
+
+\usepackage{xcolor}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.98,0.98,0.98}
+
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize\tiny,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+%define Javascript language
+\lstdefinelanguage{JavaScript}{
+keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+keywordstyle=\color{blue}\bfseries,
+ndkeywords={class, export, boolean, throw, implements, import, this},
+ndkeywordstyle=\color{darkgray}\bfseries,
+identifierstyle=\color{black},
+sensitive=false,
+comment=[l]{//},
+morecomment=[s]{/*}{*/},
+commentstyle=\color{purple}\ttfamily,
+stringstyle=\color{red}\ttfamily,
+morestring=[b]',
+morestring=[b]"
+}
+%"mystyle" code listing set
+\lstset{style=mystyle}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The following says that all graphics (e.g. jpg, png, etc. files) will be searched in the "Figures/" folder. 
+%% Do not change it but ensure you put your figures in that folder.
+
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Deep models for shallow waters},
+  pdfauthor={James Harding},
+  pdfkeywords={template, demo},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+%%%%% THESIS / TITLE PAGE INFORMATION
+% Everybody needs to complete the following:
+\title{Deep models for shallow waters}
+\author{James Harding}
+\college{School for Infrastructure and Environment}
+
+% Master's candidates who require the alternate title page (with candidate number and word count)
+% must also un-comment and complete the following three lines:
+%\masterssubmissiontrue
+%\candidateno{933516}
+%\wordcount{28,815}
+
+% Uncomment the following line if your degree also includes exams (eg most masters):
+%\renewcommand{\submittedtext}{Submitted in partial completion of the}
+% Your full degree name.  (But remember that DPhils aren't "in" anything.  They're just DPhils.)
+\degree{Doctor of Philosophy}
+% Term and year of submission, or date if your board requires (eg most masters)
+\degreedate{2023}
+\begin{document}
+%%%%% CHOOSE YOUR LINE SPACING HERE
+% This is the official option.  Use it for your submission copy and library copy:
+\setlength{\textbaselineskip}{22pt plus2pt}
+% This is closer spacing (about 1.5-spaced) that you might prefer for your personal copies:
+%\setlength{\textbaselineskip}{18pt plus2pt minus1pt}
+
+% You can set the spacing here for the roman-numbered pages (acknowledgements, table of contents, etc.)
+\setlength{\frontmatterbaselineskip}{17pt plus1pt minus1pt}
+
+% Leave this line alone; it gets things started for the real document.
+\setlength{\baselineskip}{\textbaselineskip}
+
+%%%%% CHOOSE YOUR SECTION NUMBERING DEPTH HERE
+% You have two choices.  First, how far down are sections numbered?  (Below that, they're named but
+% don't get numbers.)  Second, what level of section appears in the table of contents?  These don't have
+% to match: you can have numbered sections that don't show up in the ToC, or unnumbered sections that
+% do.  Throughout, 0 = chapter; 1 = section; 2 = subsection; 3 = subsubsection, 4 = paragraph...
+
+% The level that gets a number:
+\setcounter{secnumdepth}{2}
+% The level that shows up in the ToC:
+\setcounter{tocdepth}{2}
+
+
+%%%%% ABSTRACT SEPARATE
+% This is used to create the separate, one-page abstract that you are required to hand into the Exam
+% Schools.  You can comment it out to generate a PDF for printing or whatnot.
+\begin{abstractseparate}
+	\input{frontmatter/03-abstract.txt} % Create an abstract.tex file in the 'text' folder for your abstract.
+\end{abstractseparate}
+
+\newpage
+\thispagestyle{empty}
+\null
+\newpage
+% JEM: Pages are roman numbered from here, though page numbers are invisible until ToC.  This is in
+% keeping with most typesetting conventions.
+\pagenumbering{roman}
+
+\begin{romanpages}
+
+% Title page is created here
+\maketitle
+
+%%%%% DEDICATION -- If you'd like one, un-comment the following.
+
+\begin{dedication}
+    \input{frontmatter/01-dedication.txt}
+\end{dedication}
+
+%%%%% Declaration -- Nothing to do here except comment out if you don't want it.
+
+\begin{declaration}
+\addcontentsline{toc}{chapter}{Declaration}
+	\input{frontmatter/02-declaration.txt}
+    \vspace{0.5em}
+    \begin{flushright}
+      \includegraphics[width=4 cm]{frontmatter/figs/signature.jpg}
+    \end{flushright}
+    \vspace{0.5em}
+    \begin{flushright}
+      {\large \textit{James Harding}}
+    \end{flushright}
+    \vspace{0.5em}
+    \noindent Word Count: tbc
+    \vfill
+    \noindent This thesis was conducted under the supervision of Dr
+Dre..
+    \vspace{2cm}
+\end{declaration}
+
+%%%%% ABSTRACT -- Nothing to do here except comment out if you don't want it.
+
+\begin{abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+	\input{frontmatter/03-abstract.txt}
+\end{abstract}
+
+%%%%% ACKNOWLEDGEMENTS -- Nothing to do here except comment out if you don't want it.
+
+\begin{acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+ 	\input{frontmatter/04-acknowledgements.txt}
+\end{acknowledgements}
+
+% This aligns the bottom of the text of each page.  It generally makes things look better.
+\flushbottom
+
+% This is where the whole-document ToC appears except for Glossary:
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+\end{romanpages}
+
+\flushbottom
+\bookmarksetup{startatroot}
+
+\chapter*{Glossary}\label{glossary}
+\addcontentsline{toc}{chapter}{Glossary}
+
+\markboth{Glossary}{Glossary}
+
+\section*{Abbreviations}\label{abbreviations}
+\addcontentsline{toc}{section}{Abbreviations}
+
+\markright{Abbreviations}
+
+\begin{description}
+\tightlist
+\item[AI]
+Artificial Intelligence
+\item[CNN]
+Convolutional Neural Network
+\item[GAN]
+Generative Adversarial Network
+\item[CNN]
+Convolutional Neural Network
+\item[GAN]
+Generative Adversarial Network
+\item[GRU]
+Gated Recurrent Unit
+\item[LSTM]
+Long Short-Term Memory
+\item[MLP]
+Multi-Layer Perceptron
+\item[RBM]
+Restricted Boltzmann Machine
+\item[TCN]
+Temporal Convolutional Network
+\item[VAE]
+Variational Autoencoder
+\item[WD]
+Wasserstein-Disrtance
+\item[cVAE]
+Conditional Variational Autoencoder
+\item[GAIN]
+Generative Adversarial Imputation Networks
+\item[RMS(L)E]
+Root Mean Squared Error
+\item[G-means]
+G-means
+\item[NLL]
+Negative Log-Likelihood
+\item[MCC]
+Matthews Correlation Coefficient
+\end{description}
+
+\section*{Parameters}\label{parameters}
+\addcontentsline{toc}{section}{Parameters}
+
+\markright{Parameters}
+
+\begin{description}
+\tightlist
+\item[\(\text{Fe}\)]
+Iron (mg/L)
+\item[\(\text{Al}\)]
+Aluminum (mg/L)
+\end{description}
+
+\section*{Nomenclature}\label{nomenclature}
+\addcontentsline{toc}{section}{Nomenclature}
+
+\markright{Nomenclature}
+
+\begin{description}
+\tightlist
+\item[\(J\)]
+cost/loss function
+\item[\(\nabla\)]
+derivative of cost w.r.t. model parameters
+\item[\(w\)]
+model parameters
+\item[\(b\)]
+model parameters
+\item[\(x\)]
+input data
+\item[\(y\)]
+output data
+\item[\(\mu\)]
+mean
+\item[\(\sigma^2\)]
+variance
+\end{description}
+
+\section*{Terminology}\label{terminology}
+\addcontentsline{toc}{section}{Terminology}
+
+\markright{Terminology}
+
+\begin{description}
+\tightlist
+\item[gradient]
+derivative of cost w.r.t. model parameters
+\item[optimizer]
+algorithm used to minimize the cost function
+\item[batch]
+subset of training data used in one iteration
+\item[epoch]
+one pass through the entire training dataset
+\item[overfitting]
+model is memorizing the training data and not generalizing well to new
+data
+\item[underfitting]
+model is not able to learn the underlying patterns in the data
+\item[regularization]
+optimisation by adding a penalty term to the loss function
+\item[dropout]
+optimise by randomly dropping out neurons during training
+\end{description}
+
+\bookmarksetup{startatroot}
+
+\chapter*{Preface}\label{preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+\markboth{Preface}{Preface}
+
+\setcounter{page}{1}
+\renewcommand{\thepage}{\arabic{page}}
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, colback=white, left=2mm, titlerule=0mm, opacityback=0, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, bottomrule=.15mm, coltitle=black, breakable]
+
+Leave or move the latex snippet above to adjust when arabic page numbers
+begin. That is also the format for injecting various other code.
+
+\end{tcolorbox}
+
+\section*{Background}\label{sec-intro}
+\addcontentsline{toc}{section}{Background}
+
+\markright{Background}
+
+Water resources, including lakes, rivers, and coastal areas, are vital
+for the world's economic, environmental, and social well-being.
+Virtutibus occurreret ab perfectius ob majestatis ex ei. Sex ego uno
+locum lor clara istas. Haustam organis veritas pro sed. Extensarum
+imperfecta vox per propugnent cap utilitatis ero. Tot callidus venturum
+pictores subducam appareat hae ubi. Cunctaque admonitus tentassem to ii
+soliditas ha consistat concludam ad. Est ritas sae aut istam paulo reges
+terea serie fas.
+
+Animalium cui duo credendas potentiam nuperrime fruebatur. Ne si nostrae
+mallent possunt ea extendo. Quo dici nam has ulla eas idem quum. Dormiam
+conabor eo videmus prudens allatis ea in. Age effectibus argumentis
+constanter uno occasionem. Nudi dura ob ac suas aspi et de fere. Si
+prius magna ab in fides co. Lor hoc statuere callidum interire rei imo.
+
+Ausi bere ut erit adeo enim an suae. Petebat proprie suo methodo ope sui
+admodum. Sane in tria nunc ne fore loco. Cum eam ullo nota duas. Ut ii
+nemine augeri majora. Ad numquam naturas deumque intueri limites si.
+Persuaderi eam imaginando vox res procederet intellectu imo.
+
+\section*{Problem Domain}\label{problem-domain}
+\addcontentsline{toc}{section}{Problem Domain}
+
+\markright{Problem Domain}
+
+Animalium cui duo credendas potentiam nuperrime fruebatur. Ne si nostrae
+mallent possunt ea extendo. Quo dici nam has ulla eas idem quum. Dormiam
+conabor eo videmus prudens allatis ea in. Age effectibus argumentis
+constanter uno occasionem. Nudi dura ob ac suas aspi et de fere. Si
+prius magna ab in fides co. Lor hoc statuere callidum interire rei imo.
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, colback=white, left=2mm, titlerule=0mm, opacityback=0, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, bottomrule=.15mm, coltitle=black, breakable]
+
+Lists
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  Complexity: this is how you do lists in markdown.
+\item
+  Inconsistency: or many other straight ovious ways (1. , - * etc).
+\item
+  Limited parameters: Si prius magna ab in fides co. Lor hoc statuere
+  callidum interire rei imo.
+\item
+  Integration with traditional Si prius magna ab in fides co. Lor hoc
+  statuere callidum interire rei imo.
+\item
+  Uncertainties: Si prius magna ab in fides co. Lor hoc statuere
+  callidum interire rei imo.
+\item
+  White-box models: Si prius magna ab in fides co. Lor hoc statuere
+  callidum interire rei imo.
+\end{itemize}
+
+Si prius magna ab in fides co. Lor hoc statuere callidum interire rei
+imo.
+
+\section*{Motivation}\label{motivation}
+\addcontentsline{toc}{section}{Motivation}
+
+\markright{Motivation}
+
+Mentemque persuadet ei opportune de aggredior proponere. Imaginabar
+objectioni indefinite ne ab propositio. Ex vera iste quam mo mihi fere
+post. Rogo meae imo bono aër vidi non sint. In refutent ea utrimque
+extensio re tractare ex rationem. Dixi omni quas re se poni is eram. Una
+mundo tangi sub tam capax porro vel talia sonum. Dulcedinem praecipuum
+vox desiderant hic hauriantur sed tractandae. Realiter reperiri collecta
+at an in. Quodque ne im ab ex hominem usitata apertum. Tum judicium sua
+age automata eos quicquam. Si confirmari persuadeor praemissae
+satyriscos cogitantem et et. Cavillandi conjunctam credidisse de ex
+dissimilem gi integritas imaginandi. Examino plausum sub attendo hos.
+
+\section*{Research Aims and
+Objectives}\label{research-aims-and-objectives}
+\addcontentsline{toc}{section}{Research Aims and Objectives}
+
+\markright{Research Aims and Objectives}
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, colback=white, left=2mm, titlerule=0mm, opacityback=0, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, bottomrule=.15mm, coltitle=black, breakable]
+
+More lists
+
+\end{tcolorbox}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Heres
+\item
+  A numbered list
+\item
+  much quicker to type!
+\end{enumerate}
+
+\section*{Contribution and
+Beneficiaries}\label{contribution-and-beneficiaries}
+\addcontentsline{toc}{section}{Contribution and Beneficiaries}
+
+\markright{Contribution and Beneficiaries}
+
+Dixi omni quas re se poni is eram. Una mundo tangi sub tam capax porro
+vel talia sonum. Dulcedinem praecipuum vox desiderant hic hauriantur sed
+tractandae. Realiter reperiri collecta at an in. Quodque ne im ab ex
+hominem usitata apertum. Tum judicium sua age automata eos quicquam. Si
+confirmari persuadeor praemissae satyriscos cogitantem et et. Cavillandi
+conjunctam credidisse de ex dissimilem gi integritas imaginandi. Examino
+plausum sub attendo hos.
+
+\section*{Research Questions}\label{research-questions}
+\addcontentsline{toc}{section}{Research Questions}
+
+\markright{Research Questions}
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, colback=white, left=2mm, titlerule=0mm, opacityback=0, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, bottomrule=.15mm, coltitle=black, breakable]
+
+Enough lists:
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  other kinds of lists?
+\item
+  Jam hae motarum mem luminis utilius sum. Superare tractare re ad
+  videntur ha is mac
+\item
+  Jam hae motarum mem luminis utilius sum. Superare tractare re ad
+  videntur ha is mac
+\end{itemize}
+
+\section*{Problem Redefined}\label{problem-redefined}
+\addcontentsline{toc}{section}{Problem Redefined}
+
+\markright{Problem Redefined}
+
+Smarter now Rei discrepant probabiles distribuam nec extensarum
+designabam. Admisi nec sacras mea cupere certum uti tur. De co is ad
+autem pedem fidem sciri tango. Praefatio de similibus evidenter de
+animalium. Sim sacras causas figere pro istius rom. Scopo uno non nolim
+omnem supra istis mente.
+
+\section*{Thesis Structure}\label{thesis-structure}
+\addcontentsline{toc}{section}{Thesis Structure}
+
+\markright{Thesis Structure}
+
+This thesis is divided into the following chapters:
+
+\begin{itemize}
+\tightlist
+\item
+  Introduction
+\item
+  Literature Review
+\item
+  Materials and Methods
+\item
+  Deep Generative Models
+\item
+  Results
+\item
+  Conclusion
+\item
+  References
+\item
+  Appendix
+\end{itemize}
+
+\section*{Data Overview}\label{data-overview}
+\addcontentsline{toc}{section}{Data Overview}
+
+\markright{Data Overview}
+
+Tactio sequor audita primae mentis sex cap. At rerumque credamus ex
+ostendam et timerent exsurgit ac. Manifestum perficitur perspicuum ac
+continetur ut to si objectioni. Audita fuerit du videam quodam ab de
+figere vi. Nocturna superque at exemplum im cogitans de. Ut an
+credidique diversorum appellatur si. Sum res agam cito est fide.
+
+\bookmarksetup{startatroot}
+
+\chapter{Literature Review}\label{literature-review}
+
+\section{Introduction}\label{introduction}
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, colback=white, left=2mm, titlerule=0mm, opacityback=0, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, bottomrule=.15mm, coltitle=black, breakable]
+
+figures and cross-referencing. The figure is generated in a jupyterlab
+.ipynb notebook here quarto-phd-template/chapter-01/notebooks. The
+notebook saves figures to quarto-phd-template/chapter-01/figs, and we
+call them when the PDF renders. Reproducible, easy to manage plots!
+
+\end{tcolorbox}
+
+This Thesis will consider three areas of literature review that
+encompass the work, shown diagrammatically below in
+Figure~\ref{fig-venn}:
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{chapter-01/figs/thiswork_venn_diagram.pdf}
+
+}
+
+\caption{\label{fig-venn}Venn-diagram of research fields encompassing
+this work.}
+
+\end{figure}%
+
+Fuerint certius dormire duratio expirat mea has agendis. Sequeretur et
+praecipuus recensenda du gi pensitatis ei intelligam. Est externarum sit
+scripturas praemissae. Nulla demus has rebus timet sui mecum certe.
+Facultate affirmare is ac priusquam tribuebam potentiam et ex continent.
+Unam pati suae vice hos luce addi dem. Meos ipsa atra vi unam in tale.
+Reges istam mundo spero ad at ha nolle.
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, colback=white, left=2mm, titlerule=0mm, opacityback=0, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, bottomrule=.15mm, coltitle=black, breakable]
+
+We call the other two plots with some publication stats using the below.
+See quarto documentation for many ways to plot multiple images. Make
+sure to leave a line spacing between code as below. The last \{\}
+declares sizing, cross-ref tegs and caption locations.
+
+\end{tcolorbox}
+
+\begin{figure}
+
+\begin{minipage}{0.50\linewidth}
+
+\centering{
+
+\includegraphics{chapter-01/figs/publications_bar_chart.png}
+
+}
+
+\subcaption{\label{fig-totpub}Total Publications 2014-2023}
+
+\end{minipage}%
+%
+\begin{minipage}{0.50\linewidth}
+
+\centering{
+
+\includegraphics{chapter-01/figs/relative_change_bar_chart.png}
+
+}
+
+\subcaption{\label{fig-pubchange}Relative 5-Year Change 2017-2022}
+
+\end{minipage}%
+
+\caption{\label{fig-elephants}Analytical view of prior work in some
+research fields per Figure~\ref{fig-venn}, including their
+intersections. @ is how all references occur from .bibs to sections etc.
+But you can use latex etc too. P.S. This is the figure caption.}
+
+\end{figure}%
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, colback=white, left=2mm, titlerule=0mm, opacityback=0, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, bottomrule=.15mm, coltitle=black, breakable]
+
+Note how much easier it is to read write than latex - .md (markdown is
+preferred by web developers for this reason.
+
+\end{tcolorbox}
+
+Animalium cui duo credendas potentiam nuperrime fruebatur. Ne si nostrae
+mallent possunt ea extendo. Quo dici nam has ulla eas idem quum. Dormiam
+conabor eo videmus prudens allatis ea in. Age effectibus argumentis
+constanter uno occasionem. Nudi dura ob ac suas aspi et de fere. Si
+prius magna ab in fides co. Lor hoc statuere callidum interire rei imo.
+Animalium cui duo credendas potentiam nuperrime fruebatur. Ne si nostrae
+mallent possunt ea extendo. Quo dici nam has ulla eas idem quum. Dormiam
+conabor eo videmus prudens allatis ea in. Age effectibus argumentis
+constanter uno occasionem. Nudi dura ob ac suas aspi et de fere. Si
+prius magna ab in fides co. Lor hoc statuere callidum interire rei imo.
+Sane quos unde esto sed una est bere. Funditus co is formemus converto
+id. Equidem quidnam at si mutetur frigida innatas. Cur vitari angeli iii
+haberi rea. Luce ei quem scio vita ne apud. Is dicunt patere vi putavi
+ne. Percipitur propositio co in cognitione id perciperem et alloquendo.
+Rem idemque sex exigere credidi scripto. Mentemque persuadet ei
+opportune de aggredior proponere. Imaginabar objectioni indefinite ne ab
+propositio. Ex vera iste quam mo mihi fere post. Rogo meae imo bono aër
+vidi non sint. In refutent ea utrimque extensio re tractare ex rationem.
+Dixi omni quas re se poni is eram. Una mundo tangi sub tam capax porro
+vel talia sonum. Dulcedinem praecipuum vox desiderant hic hauriantur sed
+tractandae. Realiter reperiri collecta at an in. Quodque ne im ab ex
+hominem usitata apertum. Tum judicium sua age automata eos quicquam. Si
+confirmari persuadeor praemissae satyriscos cogitantem et et. Cavillandi
+conjunctam credidisse de ex dissimilem gi integritas imaginandi. Examino
+plausum sub attendo hos. Jam hae motarum mem luminis utilius sum.
+Superare tractare re ad videntur ha is machinae cogitans partibus.
+Quisquis revocari eo quidquam ut patiatur imaginor. Vi immortalem de si
+cucurbitas perfectior desiderant. Et at concedam delapsus mutuatis
+importat rogassem ad. Sap obversari mei conjectus contineri pro
+distingui vix excludere. Sensibus quanquam et ac imagines infinite
+statuere judicium. Vetus versa ita negat mea nudam qua hoc foret illae.
+Rei discrepant probabiles distribuam nec extensarum designabam. Admisi
+nec sacras mea cupere certum uti tur. De co is ad autem pedem fidem
+sciri tango. Praefatio de similibus evidenter de animalium. Sim sacras
+causas figere pro istius rom. Scopo uno non nolim omnem supra istis
+mente. Fuerint certius dormire duratio expirat mea has agendis.
+Sequeretur et praecipuus recensenda du gi pensitatis ei intelligam. Est
+externarum sit scripturas praemissae. Nulla demus has rebus timet sui
+mecum certe. Facultate affirmare is ac priusquam tribuebam potentiam et
+ex continent. Unam pati suae vice hos luce addi dem. Meos ipsa atra vi
+unam in tale. Reges istam mundo spero ad at ha nolle.
+
+\section{Water}\label{sec-lit-wq}
+
+\subsection{Crisis}\label{crisis}
+
+Mentemque persuadet ei opportune de aggredior proponere. Imaginabar
+objectioni indefinite ne ab propositio. Ex vera iste quam mo mihi fere
+post. Rogo meae imo bono aër vidi non sint. In refutent ea utrimque
+extensio re tractare ex rationem. Dixi omni quas re se poni is eram. Una
+mundo tangi sub tam capax porro vel talia sonum. Dulcedinem praecipuum
+vox desiderant hic hauriantur sed tractandae.
+
+Realiter reperiri collecta at an in. Quodque ne im ab ex hominem usitata
+apertum. Tum judicium sua age automata eos quicquam. Si confirmari
+persuadeor praemissae satyriscos cogitantem et et. Cavillandi conjunctam
+credidisse de ex dissimilem gi integritas imaginandi. Examino plausum
+sub attendo hos.
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, colback=white, left=2mm, titlerule=0mm, opacityback=0, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, bottomrule=.15mm, coltitle=black, breakable]
+
+Above demonstrates defining leadig directories for figs and tables.
+Below shows you can continue to use latex if you wish. Or mix and
+match..
+
+\end{tcolorbox}
+
+\section{Section - Remote-sensing by
+markdown}\label{section---remote-sensing-by-markdown}
+
+\section{Section - Remote-sensing by latex}
+
+Sane quos unde esto sed una est bere. Funditus co is formemus converto
+id. Equidem quidnam at si mutetur frigida innatas. Cur vitari angeli iii
+haberi rea. Luce ei quem scio vita ne apud. Is dicunt patere vi putavi
+ne. Percipitur propositio co in cognitione id perciperem et alloquendo.
+Rem idemque sex exigere credidi scripto. Mentemque persuadet ei
+opportune de aggredior proponere. Imaginabar objectioni indefinite ne ab
+propositio. Ex vera iste quam mo mihi fere post. Rogo meae imo bono aër
+vidi non sint. In refutent ea utrimque extensio re tractare ex rationem.
+Dixi omni quas re se poni is eram. Una mundo tangi sub tam capax porro
+vel talia sonum. Dulcedinem praecipuum vox desiderant hic hauriantur sed
+tractandae. Realiter reperiri collecta at an in. Quodque ne im ab ex
+hominem usitata apertum. Tum judicium sua age automata eos quicquam. Si
+confirmari persuadeor praemissae satyriscos cogitantem et et. Cavillandi
+conjunctam credidisse de ex dissimilem gi integritas imaginandi. Examino
+plausum sub attendo hos. Jam hae motarum mem luminis utilius sum.
+Superare tractare re ad videntur ha is machinae cogitans partibus.
+Quisquis revocari eo quidquam ut patiatur imaginor. Vi immortalem de si
+cucurbitas perfectior desiderant. Et at concedam delapsus mutuatis
+importat rogassem ad. Sap obversari mei conjectus contineri pro
+distingui vix excludere. Sensibus quanquam et ac imagines infinite
+statuere judicium. Vetus versa ita negat mea nudam qua hoc foret illae.
+Rei discrepant probabiles distribuam nec extensarum designabam. Admisi
+nec sacras mea cupere certum uti tur. De co is ad autem pedem fidem
+sciri tango. Praefatio de similibus evidenter de animalium. Sim sacras
+causas figere pro istius rom. Scopo uno non nolim omnem supra istis
+mente. Fuerint certius dormire duratio expirat mea has agendis.
+Sequeretur et praecipuus recensenda du gi pensitatis ei intelligam. Est
+externarum sit scripturas praemissae. Nulla demus has rebus timet sui
+mecum certe. Facultate affirmare is ac priusquam tribuebam potentiam et
+ex continent. Unam pati suae vice hos luce addi dem. Meos ipsa atra vi
+unam in tale. Reges istam mundo spero ad at ha nolle.
+
+\begin{table}[]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lll}
+\hline
+\textbf{Parameter}                 & \textbf{Spaceborne}                                      & \textbf{Airborne}                 \\ \hline
+Time of overpass                   & Mostly fixed                                             & Flexible                          \\
+Spatial resolution &
+  GSD \textless 0.5 m panchromatic / \textless 2km multi-band &
+  Ground Sampling Distance (GSD) \textless 5 m \\
+Spectral resolution                & Panchromatic to multispectral, some hyper-spectral       & Panchromatic to hyperspectral     \\
+Temporal resolution & Days                                                     & Minutes                           \\
+Calibration                        & Pre-calibration before launch, onboard characterisation & Before launch + possible on-board \\
+Cost                               & Free to $\sim$\$2–10k per scene (High res)               & \$350 per square mile             \\
+Stability                          & High                                                     & Low, due to turbulence            \\
+Swath width &
+  High - 2500 km to full hemisphere  &
+  \begin{tabular}[c]{@{}l@{}}Small (up to 10 km per\\ flight line)\end{tabular} \\
+Interpretation approaches          & Empirical-and semi-empirical mostly                      & Empirical and analytical          \\
+Image processing complexity    & Less complex vs. hyper-spectral sensors                  & More complex, specific skills     \\
+Constraints                        & Fixed spatiotemporal resolution / weather constraints    & Coverage schedule is flexible     \\
+Geographic coverage areas          & Local, regional, and global                              & Local and regional                \\ \hline
+                                   &                                                          &                                  
+\end{tabular}%
+}
+\caption{Comparison between spaceborne and airborne sensors.}
+
+\end{table}
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, colback=white, left=2mm, titlerule=0mm, opacityback=0, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, bottomrule=.15mm, coltitle=black, breakable]
+
+the above code just inserts a table written in another file to keep this
+area clean. You are also able to make tables using markdown however.
+Check this self-adjusting table out, note how positinoing impacts table
+format and justification:
+
+\end{tcolorbox}
+
+\begin{longtable}[]{@{}llrc@{}}
+\caption{Demonstration of pipe table syntax}\tabularnewline
+\toprule\noalign{}
+Default & Left & Right & Center \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Default & Left & Right & Center \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+12 & 12 & 12 & 12 \\
+123 & 123 & 123 & 123 \\
+1 & 1 & 1 & 1 \\
+\end{longtable}
+
+\newpage{}
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, colback=white, left=2mm, titlerule=0mm, opacityback=0, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, bottomrule=.15mm, coltitle=black, breakable]
+
+Or you can insert csv files directly, and navigate through them or
+select variables. and of course you can still do things the latex way,
+such as for images:
+
+\end{tcolorbox}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.\textwidth]{chapter-01/figs/l7l8s2bands.png}
+    \caption{Spectral response of Landsat 7, Landsat 8 and Sentinel 2 over the electromagnetic spectrum.}
+    \label{l7l8s2bands}
+\end{figure}
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, colback=white, left=2mm, titlerule=0mm, opacityback=0, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, bottomrule=.15mm, coltitle=black, breakable]
+
+many ways to do equations too:
+
+\end{tcolorbox}
+
+Some text
+
+\begin{equation}
+\alpha_i=\frac{\exp \left(z_i^\alpha\right)}{\sum_{j=1}^M \exp \left(z_j^\alpha\right)}
+\end{equation}
+The variances $\sigma(x)$ represent scale parameters which cannot be less than zero, so we constrain its output using the exponential activation:
+\begin{equation}
+\sigma_i=\exp \left(z_i^\sigma\right)
+\end{equation}
+While no activation is applied to the $\mu(x)$ value:
+\begin{equation}
+\mu_{i k}=z_{i k}^\mu
+\end{equation}
+we can form a cost function using the equation for likelihood (of some distribution fitting the given observations $t$). Further numerical stability is ensured by taking the log-likelihood. As it is typical to minimise a function when training networks, we take the negative of the likelihood:  
+\begin{equation}
+E=\sum_q E^q
+\end{equation}
+
+\bookmarksetup{startatroot}
+
+\chapter{}\label{section}
+
+\#Materials and Methods
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, leftrule=.75mm, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, colback=white, left=2mm, titlerule=0mm, opacityback=0, rightrule=.15mm, arc=.35mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, bottomrule=.15mm, coltitle=black, breakable]
+
+Labels similarly work for latex as above. This chapter just shows you
+can do everything in one file, or in many, slice it however works best
+for your situation.
+
+\end{tcolorbox}
+
+Sane quos unde esto sed una est bere. Funditus co is formemus converto
+id. Equidem quidnam at si mutetur frigida innatas. Cur vitari angeli iii
+haberi rea. Luce ei quem scio vita ne apud. Is dicunt patere vi putavi
+ne. Percipitur propositio co in cognitione id perciperem et alloquendo.
+Rem idemque sex exigere credidi scripto. Mentemque persuadet ei
+opportune de aggredior proponere. Imaginabar objectioni indefinite ne ab
+propositio. Ex vera iste quam mo mihi fere post. Rogo meae imo bono aër
+vidi non sint. In refutent ea utrimque extensio re tractare ex rationem.
+Dixi omni quas re se poni is eram. Una mundo tangi sub tam capax porro
+vel talia sonum. Dulcedinem praecipuum vox desiderant hic hauriantur sed
+tractandae. Realiter reperiri collecta at an in. Quodque ne im ab ex
+hominem usitata apertum. Tum judicium sua age automata eos quicquam. Si
+confirmari persuadeor praemissae satyriscos cogitantem et et. Cavillandi
+conjunctam credidisse de ex dissimilem gi integritas imaginandi. Examino
+plausum sub attendo hos. Jam hae motarum mem luminis utilius sum.
+Superare tractare re ad videntur ha is machinae cogitans partibus.
+Quisquis revocari eo quidquam ut patiatur imaginor. Vi immortalem de si
+cucurbitas perfectior desiderant. Et at concedam delapsus mutuatis
+importat rogassem ad. Sap obversari mei conjectus contineri pro
+distingui vix excludere. Sensibus quanquam et ac imagines infinite
+statuere judicium. Vetus versa ita negat mea nudam qua hoc foret illae.
+Rei discrepant probabiles distribuam nec extensarum designabam. Admisi
+nec sacras mea cupere certum uti tur. De co is ad autem pedem fidem
+sciri tango. Praefatio de similibus evidenter de animalium. Sim sacras
+causas figere pro istius rom. Scopo uno non nolim omnem supra istis
+mente. Fuerint certius dormire duratio expirat mea has agendis.
+Sequeretur et praecipuus recensenda du gi pensitatis ei intelligam. Est
+externarum sit scripturas praemissae. Nulla demus has rebus timet sui
+mecum certe. Facultate affirmare is ac priusquam tribuebam potentiam et
+ex continent. Unam pati suae vice hos luce addi dem. Meos ipsa atra vi
+unam in tale. Reges istam mundo spero ad at ha nolle.
+
+\bookmarksetup{startatroot}
+
+\chapter{Functions}\label{functions}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  This is the folder structure generated when you call the cell in
+  quarto-phd-template/create-chapter.ipynb. It determines your next
+  chapter from the repo.
+\item
+  The ascii-repo.ipynb creates diagrams of the current folder structure,
+  the first to one level the latter all the way. The structure is
+  flexible, except index.qmd and \_quarto.yml must stay. References to
+  impotant environmental legislation is also siple to do, and much the
+  same as latex EU-WFD (n.d.).
+\item
+  Change quarto-phd-template/frontmatter/figs/signature.jpg for your own
+  to apear at the declaration. Same for the uni crest in the same
+  folder. index.qmd contains the Glossary - in simple Markdown. you can
+  wrap that into invisible tables if you wish more control.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{├── .quarto/}
+\NormalTok{│   ├── cites/}
+\NormalTok{│   ├── idx/}
+\NormalTok{│   └── xref/}
+\NormalTok{├── \_book/}
+\NormalTok{│   └── uoe{-}thesis.pdf}
+\NormalTok{├── \_configs/}
+\NormalTok{│   └── matplotlibrc.txt}
+\NormalTok{├── chapter{-}00/}
+\NormalTok{│   └── \_introduction.qmd}
+\NormalTok{├── chapter{-}01/}
+\NormalTok{│   ├── 01{-}intro.qmd}
+\NormalTok{│   ├── 02{-}wq.qmd}
+\NormalTok{│   ├── 03{-}eo.qmd}
+\NormalTok{│   ├── 05{-}ai.qmd}
+\NormalTok{│   ├── \_literature{-}review.qmd}
+\NormalTok{│   ├── figs/}
+\NormalTok{│   ├── images/}
+\NormalTok{│   ├── litreview.qmd}
+\NormalTok{│   ├── notebooks/}
+\NormalTok{│   └── tables/}
+\NormalTok{├── chapter{-}02/}
+\NormalTok{│   └── \_materials\&methods.qmd}
+\NormalTok{├── chapter{-}03/}
+\NormalTok{│   ├── \_chapter{-}title.qmd}
+\NormalTok{│   ├── figs/}
+\NormalTok{│   ├── images/}
+\NormalTok{│   ├── notebooks/}
+\NormalTok{│   └── tables/}
+\NormalTok{├── endmatter/}
+\NormalTok{│   ├── appendix/}
+\NormalTok{│   ├── bibliography/}
+\NormalTok{│   └── oldfigures/}
+\NormalTok{├── frontmatter/}
+\NormalTok{│   ├── 01{-}dedication.txt}
+\NormalTok{│   ├── 02{-}declaration.txt}
+\NormalTok{│   ├── 03{-}abstract.txt}
+\NormalTok{│   ├── 04{-}acknowledgements.txt}
+\NormalTok{│   ├── before{-}body.tex}
+\NormalTok{│   ├── figs/}
+\NormalTok{│   ├── header.tex}
+\NormalTok{│   ├── title.tex}
+\NormalTok{│   └── toc.tex}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  The \_quarto.yml specifies some variables and your document structure,
+  make sure to declare them in there if you change relevent file names
+  or paths, or create new files you want to include take note of the
+  structure above and the .yml below. To get this chapter to print, I
+  will have to add ``- chapter-03/\_chapter-title.qmd'' to the .yml file
+  below. No need to worry about figures etc.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{project}\KeywordTok{:}
+\AttributeTok{  }\FunctionTok{type}\KeywordTok{:}\AttributeTok{ book}
+\FunctionTok{book}\KeywordTok{:}
+\AttributeTok{  }\FunctionTok{chapters}\KeywordTok{:}
+\AttributeTok{    }\KeywordTok{{-}}\AttributeTok{ index.qmd}
+\AttributeTok{    }\KeywordTok{{-}}\AttributeTok{ chapter{-}00/\_introduction.qmd}
+\AttributeTok{    }\KeywordTok{{-}}\AttributeTok{ chapter{-}01/\_literature{-}review.qmd}
+\AttributeTok{    }\KeywordTok{{-}}\AttributeTok{ chapter{-}02/\_materials\&methods.qmd}
+\AttributeTok{    }\KeywordTok{{-}}\AttributeTok{ endmatter/bibliography/\_references.qmd}
+\AttributeTok{  }\FunctionTok{appendices}\KeywordTok{:}
+\AttributeTok{    }\KeywordTok{{-}}\AttributeTok{ endmatter/appendices/appendix{-}a.qmd}
+
+\FunctionTok{title}\KeywordTok{:}\AttributeTok{ Deep models for shallow waters}
+\FunctionTok{author}\KeywordTok{:}\AttributeTok{ James Harding}
+\FunctionTok{college}\KeywordTok{:}\AttributeTok{ School for Infrastructure and Environment}
+\FunctionTok{degree}\KeywordTok{:}\AttributeTok{ Doctor of Philosophy}
+\FunctionTok{year}\KeywordTok{:}\AttributeTok{ }\DecValTok{2023}
+\FunctionTok{format}\KeywordTok{:}
+\AttributeTok{  }\FunctionTok{pdf}\KeywordTok{:}
+\AttributeTok{    }\FunctionTok{keep{-}tex}\KeywordTok{:}\AttributeTok{ }\CharTok{false}\AttributeTok{ }
+\AttributeTok{    }\FunctionTok{documentclass}\KeywordTok{:}\AttributeTok{ uoe{-}thesis{-}template}
+\AttributeTok{    }\FunctionTok{classoption}\KeywordTok{:}\AttributeTok{ }\KeywordTok{[}\AttributeTok{twoside}\KeywordTok{]}
+\AttributeTok{    }\FunctionTok{papersize}\KeywordTok{:}\AttributeTok{ a4}
+\AttributeTok{    }\FunctionTok{template{-}partials}\KeywordTok{:}
+\AttributeTok{    }\KeywordTok{{-}}\AttributeTok{ frontmatter/title.tex}
+\AttributeTok{    }\KeywordTok{{-}}\AttributeTok{ frontmatter/before{-}body.tex}
+\AttributeTok{    }\KeywordTok{{-}}\AttributeTok{ frontmatter/toc.tex}
+\AttributeTok{    }\FunctionTok{include{-}in{-}header}\KeywordTok{:}
+\AttributeTok{    }\KeywordTok{{-}}\AttributeTok{ frontmatter/header.tex}
+\FunctionTok{supervisors}\KeywordTok{: }\CharTok{|}
+\NormalTok{  Dr Dre.}
+\FunctionTok{wordcount}\KeywordTok{: }\CharTok{|}
+\NormalTok{  tbc}
+\FunctionTok{keywords}\KeywordTok{:}\AttributeTok{ }\KeywordTok{[}\AttributeTok{template}\KeywordTok{,}\AttributeTok{ demo}\KeywordTok{]}
+\FunctionTok{bibliography}\KeywordTok{:}\AttributeTok{ endmatter/bibliography/wq.bib}
+\end{Highlighting}
+\end{Shaded}
+
+\bookmarksetup{startatroot}
+
+\chapter*{References}\label{references}
+\addcontentsline{toc}{chapter}{References}
+
+\markboth{References}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-ca1}
+EU-WFD. n.d. {``{Directive 2000/60/EC of the European Parliament and of
+the Council of 23 October 2000 establishing a framework for Community
+action in the field of water policy}.''}
+
+\end{CSLReferences}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{part}{Appendices}
+\appendix
+
+\chapter{Appendix A}\label{appendix-a}
+
+You can write appendixes in the same way as chapters. Just add the class
+\texttt{appendix} to the header. Be sure to add it as an appendix in
+\texttt{\_quarto.yml} as well.
+
+
+
+
+\end{document}
